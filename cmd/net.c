@@ -244,7 +244,7 @@ static int netboot_common(enum proto_t proto, cmd_tbl_t *cmdtp, int argc,
 	}
 
 	/* flush cache */
-	flush_cache(load_addr, size);
+	flush_cache(load_addr, ALIGN(size, CONFIG_SYS_CACHELINE_SIZE));
 
 	bootstage_mark(BOOTSTAGE_ID_NET_LOADED);
 
